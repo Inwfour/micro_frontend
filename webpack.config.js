@@ -17,8 +17,7 @@ module.exports = {
 			'reflect-metadata',
 			'react',
 			'react-dom',
-			'vue',
-			'vue-router'
+			// 'vue',
 		],
 	},
 	output: {
@@ -57,7 +56,7 @@ module.exports = {
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
-		new VueLoaderPlugin(['dist']),
+		new VueLoaderPlugin(),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'common-dependencies',
 		}),
@@ -68,6 +67,6 @@ module.exports = {
 	],
 	devtool: 'source-map',
 	externals: [
-		'vue', 'vue-router'
+
 	],
 };
