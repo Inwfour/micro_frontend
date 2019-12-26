@@ -4,5 +4,7 @@ const hashPrefix = prefix => location => location.hash.startsWith(`#${prefix}`)
 
 registerApplication('react', () => import('../react/index.js'), hashPrefix('/'))
 registerApplication('angular', () => import('../angular/index.js'), hashPrefix('/'))
+registerApplication('vue', () => import('../vue/index.js'), hashPrefix('/'))
 
 start()
+

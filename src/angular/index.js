@@ -12,7 +12,6 @@ const domElementGetter = () => {
     el.id = 'angular'
     document.body.appendChild(el)
   }
-
   return el
 }
 

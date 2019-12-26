@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
 	entry: {
@@ -16,6 +17,8 @@ module.exports = {
 			'reflect-metadata',
 			'react',
 			'react-dom',
+			'vue',
+			'vue-router'
 		],
 	},
 	output: {
@@ -34,6 +37,10 @@ module.exports = {
 				test: /\.tsx?$/,
 				loader: 'ts-loader',
 			},
+			{
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      }
 		],
 	},
 	node: {
@@ -44,9 +51,13 @@ module.exports = {
 			__dirname,
 			'node_modules',
 		],
+		alias: {
+      vue: 'vue/dist/vue.js'
+    },
 	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
+		new VueLoaderPlugin(['dist']),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'common-dependencies',
 		}),
@@ -57,5 +68,6 @@ module.exports = {
 	],
 	devtool: 'source-map',
 	externals: [
+		'vue', 'vue-router'
 	],
 };

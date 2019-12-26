@@ -10,7 +10,6 @@ const domElementGetter = () => {
     el.id = 'react'
     document.body.appendChild(el)
   }
-
   return el
 }
 
